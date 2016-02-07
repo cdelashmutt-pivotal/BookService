@@ -51,12 +51,20 @@ namespace BookService.CloudServices
             {
                 Nlog.Trace(String.Format("Found service named {0} in VCAP_SERVICES.  Reconfiguring for bound services.", connectionStringName));
                 JToken creds = service["credentials"];
-                string conString = String.Format("server={0};port={1};database={2};uid={3};password={4};",
-                    creds["hostname"],
-                    creds["port"],
-                    creds["name"],
-                    creds["username"],
-                    creds["password"]);
+                string conString = "";
+                if(creds["connectionString"] != null)
+                {
+                    conString = creds["connectionString"].ToString();
+                }
+                else
+                {
+                    conString = String.Format("server={0};port={1};database={2};uid={3};password={4};",
+                        creds["hostname"],
+                        creds["port"],
+                        creds["name"],
+                        creds["username"],
+                        creds["password"]);
+                }
                 Nlog.Debug(conString);
                 return conString;
             }

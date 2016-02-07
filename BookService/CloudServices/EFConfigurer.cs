@@ -1,4 +1,6 @@
 ﻿using MySql.Data.Entity;
+using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Web;
 
@@ -12,7 +14,16 @@ namespace BookService.CloudServices
             VcapServices vcapServices = VcapServices.Instance();
             if(vcapServices.IsCF)
             {
-                DbConfiguration.SetConfiguration(new MySqlEFConfiguration());
+                JToken service = vcapServices.GetService("BookServiceContext");
+
+                IEnumerator<JToken> tags = service["tags"].Values().GetEnumerator();
+                while(tags.MoveNext())
+                {
+                    if("mysql".Equals(tags.Current.ToString()))
+                    {
+                        DbConfiguration.SetConfiguration(new MySqlEFConfiguration());
+                    }
+                }
             }
         }
     }
