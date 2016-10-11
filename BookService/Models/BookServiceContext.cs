@@ -3,7 +3,7 @@ using BookService.Migrations;
 using System.Data.Entity;
 
 namespace BookService.Models
-{
+{ 
     public class BookServiceContext : DbContext
     {
         // You can add custom code to this file. Changes will not be overwritten.

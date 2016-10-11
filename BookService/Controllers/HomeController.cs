@@ -14,5 +14,11 @@ namespace BookService.Controllers
 
             return View();
         }
+
+        public void Kill()
+        {
+            System.Console.Out.WriteLine("Faster, Pussycat! Kill! Kill!");
+            System.Environment.Exit(1);
+        }
     }
 }

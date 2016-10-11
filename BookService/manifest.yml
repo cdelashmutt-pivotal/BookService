@@ -1,6 +1,6 @@
 ---
 applications:
-- name: bookservice
+- name: bookservice-dev
   path: .
   stack: windows2012R2
   buildpack: https://github.com/ryandotsmith/null-buildpack.git
