@@ -13,7 +13,7 @@
             </thead>
             <tbody>
                 @foreach (DictionaryEntry env in System.Environment.GetEnvironmentVariables())
-                {<tr><td style="word-wrap: break-word">@env.Key</td><td>@env.Value</td></tr> }
+                {<tr><td style="word-break: break-word">@env.Key</td><td style="word-break: break-word">@env.Value</td></tr> }
             </tbody>
         </table>
     </div>
