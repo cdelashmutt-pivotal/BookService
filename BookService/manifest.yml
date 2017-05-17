@@ -3,8 +3,8 @@ applications:
 - name: bookservice-dev
   path: .
   stack: windows2012R2
-  buildpack: binary_buildpack
-  health-check-type: none
+  buildpack: hwc_buildpack
+  health-check-type: port
   memory: 512M
   services:
   - BookServiceContext
