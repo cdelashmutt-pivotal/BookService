@@ -9,3 +9,4 @@ applications:
   random-route: true
   services:
   - BookServiceContext
+  
