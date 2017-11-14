@@ -6,5 +6,6 @@ applications:
   buildpack: hwc_buildpack
   health-check-type: port
   memory: 512M
+  random-route: true
   services:
   - BookServiceContext
